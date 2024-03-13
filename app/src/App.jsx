@@ -3,8 +3,8 @@ import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react'
 
-
 function App() {
+
   const [typing, setTyping] = useState(false)
   const [messages, setMessages] = useState([])
 
@@ -54,8 +54,8 @@ function App() {
     await fetch('https://api.openai.com/v1/chat/completions', {
       method: "POST",
       headers: {
-        "OpenAI-Organization": "org-ekjr6H8lYxrPVmWQ9ZdLvN5H",
-        "Authorization" : "Bearer " + "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",
+        "OpenAI-Organization": import.meta.env.VITE_ORG_KEY, //We use import.meta since we use VITE as server
+        "Authorization" : "Bearer " + import.meta.env.VITE_API_KEY,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(apiRequestBody)
@@ -66,7 +66,7 @@ function App() {
         [...chatMesssages, {
           message: data.choices[0].message.content,
           sender: "ChatGPT",
-          direction: "ingoing"
+          direction: "incoming"
         }]
       );
       setTyping(false);
@@ -75,8 +75,8 @@ function App() {
 
   return (
     <div className='App'>
-      <div style={{position:'relative', height:'600px', width:'700px'}}>
-        <MainContainer>
+      <div className='bot' style={{position:'relative', height:'600px', width:'700px'}}>
+        <MainContainer className='bot2'>
           <ChatContainer>
             <MessageList 
               scrollBehavior='smooth'
