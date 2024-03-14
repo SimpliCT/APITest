@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react'
+import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator, Avatar } from '@chatscope/chat-ui-kit-react'
 import logo from './assets/SimpliCT_logo.svg';
 function App() {
 
@@ -13,7 +13,8 @@ function App() {
     const newMessage = {
       message: message,
       sender: 'user',
-      direction: 'outgoing'
+      direction: 'outgoing',
+      name: 'you'
     }
 
     const newMessages = [...messages, newMessage]
@@ -35,7 +36,7 @@ function App() {
 
     const systemMessage = {
       role: "system",
-      content: "You are a tutor aiding help with learning computation thinking"
+      content: "You are a tutor aiding help with learning computation thinking. Explain the computational thinking in terms that 15 year old would understand. You can be a bit sarcastic"
     }
 
     const apiRequestBody = {
@@ -81,7 +82,7 @@ function App() {
                 return <Message key={i} model={message}></Message>
               })}
             </MessageList>
-            <MessageInput placeholder='Type message here' onSend={HandleSend}/> 
+            <MessageInput autoFocus={true} placeholder='Type message here' onSend={HandleSend}/> 
           </ChatContainer>
         </MainContainer> 
     </div>
