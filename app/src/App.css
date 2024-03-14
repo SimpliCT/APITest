@@ -30,9 +30,6 @@
   color: black;
 }
 
-.cs-message-list dugrim{
-  background-color: var(--custom-background);
-}
 
 div .cs-message-list,
 div .ps__rail-y:hover,
@@ -40,12 +37,16 @@ div .ps .ps__rail-y:hover,
 div .ps__rail-y {
 background-color: var(--custom-background);
 }
-
+div .cs-message-input{
+  display: fixed;
+  align-items: center;
+}
 div .cs-message-input__content-editor,
 div .cs-message-input__content-editor,
 div .cs-message-input__content-editor-wrapper{
   background-color: rgb(72, 72, 72);
   color: white;
+  position: sticky;
   
 }
 
@@ -65,7 +66,12 @@ div .cs-message-input__content-editor-wrapper{
   max-width: 60%;
 }
 
-/* Chat bubbles */
+div .cs-message--incoming,
+div .cs-message--outgoing{
+  width: 50%;
+}
+
+
 div .cs-message--incoming .cs-message__content{
   background-color: var(--bot-chat);
   color: white;
@@ -93,10 +99,13 @@ div .cs-chat-container .cs-message-input{
 div .cs-main-container{
   max-height: 90vh;
 }
-
 div .cs-main-container,
 div .cs-chat-container .cs-message-input {
 border: 0px;
+}
+
+.ps{
+  overflow-y: scroll !important;
 }
 
 div .cs-typing-indicator__dot {
@@ -117,9 +126,6 @@ svg.svg-inline--fa.fa-paper-plane.fa-w-16 path{
   
 } 
 
-div .cs-typing-indicator{
-  background-color: aqua;
-}
 
 ::before{
   color: rgb(135, 135, 135) !important;
