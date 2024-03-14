@@ -1,6 +1,6 @@
 #root {
-  height: 600px;
-  width: 1800px;
+  height: 100%;
+  width: 100%;
   text-align: center;
   background-color: var(--custom-background);
   --custom-Secondary-color: #25BE5A;
@@ -13,13 +13,17 @@
 .topbar{
   background-color: var(--custom-secondary-backround);
   width: 100%;
+  height: 10%;
   height: fit-content;
   border-bottom: 1px solid var(--custom-Secondary-color);
+}
+.logo {
+  padding-top: 10px;
 }
 .App{
   position:relative;
   height: 100%;
-  width: 100%; 
+  width: 100%;
 }
 .cs-message-list .cs-typing-indicator{
   background-color: var(--custom-background) !important;
@@ -49,9 +53,16 @@ div .cs-message-input__content-editor-container{
   color: white;
 }
 
+div .cs-message-input {
+  display: fixed !important;
+  align-items: center;
+  background-color: var(--custom-background);
+}
+
 div .cs-message-input__content-editor-wrapper{
   border: 1px solid rgb(135, 135, 135);
-  max-width: 600px;
+  place-items: center;
+  max-width: 60%;
 }
 
 /* Chat bubbles */
@@ -78,9 +89,9 @@ div .cs-chat-container .cs-message-input{
   padding-left: 25%;
 
 }
+
 div .cs-main-container{
-  max-width: 100%;
-  min-width: min-content; 
+  max-height: 90vh;
 }
 
 div .cs-main-container,

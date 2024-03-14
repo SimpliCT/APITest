@@ -70,7 +70,7 @@ function App() {
   return (
     <div className='App'>
       <div className='topbar'>
-        <img src={logo} alt="" />
+        <img className='logo' src={logo} alt="" />
       </div>
         <MainContainer>
           <ChatContainer>
@@ -81,7 +81,7 @@ function App() {
                 return <Message key={i} model={message}></Message>
               })}
             </MessageList>
-            <MessageInput placeholder='Type message here' onSend={HandleSend}/>
+            <MessageInput placeholder='Type message here' onSend={HandleSend}/> 
           </ChatContainer>
         </MainContainer> 
     </div>
