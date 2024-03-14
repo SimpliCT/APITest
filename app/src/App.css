@@ -1,42 +1,115 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  height: 600px;
+  width: 1800px;
   text-align: center;
+  background-color: var(--custom-background);
+  --custom-Secondary-color: #25BE5A;
+  --custom-background: #212121;
+  --custom-secondary-backround: #2b2b2b;
+  --bot-chat: #272727;
+  --user-chat: #303030;
+
+}
+.topbar{
+  background-color: var(--custom-secondary-backround);
+  width: 100%;
+  height: fit-content;
+  border-bottom: 1px solid var(--custom-Secondary-color);
+}
+.App{
+  position:relative;
+  height: 100%;
+  width: 100%; 
+}
+.cs-message-list .cs-typing-indicator{
+  background-color: var(--custom-background) !important;
+  color: black;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.cs-message-list dugrim{
+  background-color: var(--custom-background);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div .cs-message-list,
+div .ps__rail-y:hover,
+div .ps .ps__rail-y:hover,
+div .ps__rail-y {
+background-color: var(--custom-background);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+div .cs-message-input__content-editor,
+div .cs-message-input__content-editor,
+div .cs-message-input__content-editor-wrapper{
+  background-color: rgb(72, 72, 72);
+  color: white;
+  
 }
 
-.card {
-  padding: 2em;
+div .cs-message-input__content-editor-container{
+  color: white;
 }
 
-.read-the-docs {
-  color: #888;
+div .cs-message-input__content-editor-wrapper{
+  border: 1px solid rgb(135, 135, 135);
+  max-width: 600px;
+}
+
+/* Chat bubbles */
+div .cs-message--incoming .cs-message__content{
+  background-color: var(--bot-chat);
+  color: white;
+  border-radius: 12px;
+  padding:1rem;
+  text-align: left;
+}
+
+div .cs-message--outgoing .cs-message__content{
+  background-color: var(--user-chat);
+  color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: right;
+}
+
+/* Message input background*/
+div .cs-chat-container .cs-message-input{
+  background-color: var(--custom-background);
+  color: white;
+  padding-left: 25%;
+
+}
+div .cs-main-container{
+  max-width: 100%;
+  min-width: min-content; 
+}
+
+div .cs-main-container,
+div .cs-chat-container .cs-message-input {
+border: 0px;
+}
+
+div .cs-typing-indicator__dot {
+  background-color: var(--custom-Secondary-color);
+  
+}
+
+div .cs-typing-indicator__text{
+  color: white;
+}
+
+svg.svg-inline--fa.fa-paperclip.fa-w-14{
+  display: none;
+}
+svg.svg-inline--fa.fa-paper-plane.fa-w-16,
+svg.svg-inline--fa.fa-paper-plane.fa-w-16 path{
+  fill: var(--custom-Secondary-color);
+  
+} 
+
+div .cs-typing-indicator{
+  background-color: aqua;
+}
+
+::before{
+  color: rgb(135, 135, 135) !important;
 }

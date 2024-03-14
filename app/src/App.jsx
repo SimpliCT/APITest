@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react'
-
+import logo from './assets/SimpliCT_logo.svg';
 function App() {
 
   const [typing, setTyping] = useState(false)
@@ -28,15 +28,9 @@ function App() {
   }
 
   async function processMessageToChatGPT(chatMesssages) {
-    let role = "";
+  
     let apiMessages = chatMesssages.map((msg) => {
-      if (msg.sender === "ChatGPT") {
-        role = "assistant"
-      }else{
-        role = "user"
-      }
-      return {role:role, content:msg.message}
-
+      return {role:msg.sender, content:msg.message}
     });
 
     const systemMessage = {
@@ -65,7 +59,7 @@ function App() {
       setMessages(
         [...chatMesssages, {
           message: data.choices[0].message.content,
-          sender: "ChatGPT",
+          sender: "assistant",
           direction: "incoming"
         }]
       );
@@ -75,12 +69,14 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='bot' style={{position:'relative', height:'600px', width:'700px'}}>
-        <MainContainer className='bot2'>
+      <div className='topbar'>
+        <img src={logo} alt="" />
+      </div>
+        <MainContainer>
           <ChatContainer>
             <MessageList 
               scrollBehavior='smooth'
-              typingIndicator= {typing ? <TypingIndicator content="SimpliCT is typing"/>:null}>
+              typingIndicator= {typing ? <TypingIndicator className="dugrim" content="SimpliCT is typing"/>:null}>
               {messages.map((message, i) => {
                 return <Message key={i} model={message}></Message>
               })}
@@ -88,9 +84,6 @@ function App() {
             <MessageInput placeholder='Type message here' onSend={HandleSend}/>
           </ChatContainer>
         </MainContainer> 
-
-      </div>
-
     </div>
   )
 }
