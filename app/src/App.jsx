@@ -3,6 +3,8 @@ import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator, Avatar } from '@chatscope/chat-ui-kit-react'
 import logo from './assets/SimpliCT_logo.svg';
+import AvatarLogo from './assets/SimpliCT_bot_icon.svg';
+import userlogo from './assets/SimpliCT_user_icon.svg';
 function App() {
 
   const [typing, setTyping] = useState(false)
@@ -11,10 +13,13 @@ function App() {
   const HandleSend = async (message) => {
 
     const newMessage = {
-      message: message,
-      sender: 'user',
-      direction: 'outgoing',
-      name: 'you'
+      model: {
+        message: message,
+        sender: 'user',
+        direction: 'outgoing'
+      },
+      children: <Avatar name='You' src={userlogo} size='md'/>,
+      avatarPosition: 'br'
     }
 
     const newMessages = [...messages, newMessage]
@@ -31,7 +36,8 @@ function App() {
   async function processMessageToChatGPT(chatMesssages) {
   
     let apiMessages = chatMesssages.map((msg) => {
-      return {role:msg.sender, content:msg.message}
+      console.log(msg);
+      return {role:msg.model.sender, content:msg.model.message}
     });
 
     const systemMessage = {
@@ -59,9 +65,13 @@ function App() {
     }).then ((data) => {
       setMessages(
         [...chatMesssages, {
-          message: data.choices[0].message.content,
-          sender: "assistant",
-          direction: "incoming"
+          model: {
+            message: data.choices[0].message.content,
+            sender: 'assistant',
+            direction: 'incoming'
+          },
+          children: <Avatar name='SimpliCT' src={AvatarLogo} size='md'/>,
+          avatarPosition:'bl'
         }]
       );
       setTyping(false);
@@ -76,10 +86,10 @@ function App() {
         <MainContainer>
           <ChatContainer>
             <MessageList 
-              scrollBehavior='smooth'
-              typingIndicator= {typing ? <TypingIndicator className="dugrim" content="SimpliCT is typing"/>:null}>
+              scrollBehavior='auto'
+              typingIndicator= {typing ? <TypingIndicator content="SimpliCT is typing"/>:null}>
               {messages.map((message, i) => {
-                return <Message key={i} model={message}></Message>
+                return <Message key={i} model={message.model} children={message.children} avatarPosition={message.avatarPosition} avatarSpacer={true}></Message>
               })}
             </MessageList>
             <MessageInput autoFocus={true} placeholder='Type message here' onSend={HandleSend}/> 

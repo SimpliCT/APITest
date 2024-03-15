@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="219.792 109.934 114.159 114.158" width="114.159" height="114.158" xmlns="http://www.w3.org/2000/svg">
+  <ellipse style="paint-order: fill; stroke: rgb(70, 70, 70); stroke-width: 0px; fill: rgb(43, 43, 43);" cx="277" cy="167" rx="56" ry="56"/>
+  <path d="M 277 178.687 C 293.822 178.687 307.532 192.01 308.154 208.68 C 299.493 215.236 288.701 219.126 277 219.126 C 265.299 219.126 254.507 215.236 245.846 208.68 C 246.468 192.01 260.178 178.687 277 178.687 Z" style="stroke: rgb(37, 190, 90); stroke-width: 8px; fill: rgb(37, 190, 90); fill-opacity: 0;"/>
+  <circle style="stroke: rgb(37, 190, 90); stroke-width: 8px; fill: rgb(37, 190, 90); fill-opacity: 0;" cx="277" cy="158" r="20"/>
+</svg>

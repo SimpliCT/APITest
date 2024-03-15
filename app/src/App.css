@@ -73,7 +73,7 @@ div .cs-message--outgoing{
 
 
 div .cs-message--incoming .cs-message__content{
-  background-color: var(--bot-chat);
+  background-color: var(--custom-Secondary-color);
   color: white;
   border-radius: 12px;
   padding:1rem;
