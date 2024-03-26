@@ -25,6 +25,61 @@
   height: 100%;
   width: 100%;
 }
+
+.Modal {
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left:25%;
+  right:25%;
+  background-color: #3d3d3d;
+}
+.ModalOverlay{
+  position: fixed;
+  z-index:9999;
+  top :0;
+  left:0;
+  right:0;
+  bottom:0;
+  background: #212121c5;
+  color: #ffffff;
+  outline: none;
+  padding: 0;
+  text-align: center;
+}
+
+.grid2x2 {
+  min-height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.grid2x2 > div {
+  display: flex; 
+  flex-basis: calc(50% - 30px);  
+  justify-content: center;
+  flex-direction: column;
+}
+.grid2x2 > div > button {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #302f2f;
+  color: #ffffff;
+  border-radius: 0;
+  transition-duration: 0.3s;
+}
+
+.grid2x2 > div > button:hover {
+  background-color: #212121;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.box { margin: 15px; }
+
 .cs-message-list .cs-typing-indicator{
   background-color: var(--custom-background) !important;
   color: black;
@@ -97,6 +152,7 @@ div .cs-chat-container .cs-message-input{
 }
 
 div .cs-main-container{
+  min-height: 90vh;
   max-height: 90vh;
 }
 div .cs-main-container,
