@@ -26,21 +26,23 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(true);
 
-  function handleCloseModal(systemMessageString) {
-    switch(systemMessageString) {
-      case "ComputerScience":
-        systemMessage.content = "Start every message with 'CS:'.";
-        break;
-      case "Health":
-        systemMessage.content = "Start every message with 'Health:'.";
-        break;
-      case "Politics":
-        systemMessage.content = "Start every message with 'Politics:'.";
-        break;
-      case "Other":
-        systemMessage.content = "You are a tutor aiding help with learning computation thinking. Explain it in terms that a 15 year old would understand. You can be a bit sarcastic";
-        break;
-    }
+  // function handleCloseModal(systemMessageString) {
+  function handleCloseModal() {  
+    systemMessage.content = "You are a tutor aiding help with teaching computation thinking.";
+    // switch(systemMessageString) {
+    //   case "ComputerScience":
+    //     systemMessage.content = "Start every message with 'CS:'.";
+    //     break;
+    //   case "Health":
+    //     systemMessage.content = "Start every message with 'Health:'.";
+    //     break;
+    //   case "Politics":
+    //     systemMessage.content = "Start every message with 'Politics:'.";
+    //     break;
+    //   case "Other":
+    //     systemMessage.content = "You are a tutor aiding help with teaching computation thinking."; // Explain it in terms that a 15 year old would understand. You can be a bit sarcastic";
+    //     break;
+    // }
 
     setIsOpen(false); //Closes modal after picking field
   }
@@ -74,7 +76,8 @@ function App() {
     });
 
     const apiRequestBody = {
-      "model": "gpt-3.5-turbo",
+      "model": "ft:gpt-3.5-turbo-0125:simplict::9ICV7ZpR",
+      // "model": "gpt-3.5-turbo",
       // "model": "gpt-4-turbo-preview",
       "messages" : [
         systemMessage,
@@ -92,6 +95,7 @@ function App() {
     }).then((data) => {
       return data.json();
     }).then ((data) => {
+      console.log(data);
       setMessages(
         [...chatMessages, {
           model: {
