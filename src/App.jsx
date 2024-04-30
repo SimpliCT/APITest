@@ -46,7 +46,7 @@ function App() {
     });
 
     const apiRequestBody = {
-      "model": "ft:gpt-3.5-turbo-0125:simplict::9ICV7ZpR",
+      "model": "ft:gpt-3.5-turbo-0125:simplict:v1:9Je0KpY0",
       // "model": "gpt-3.5-turbo",
       // "model": "gpt-4-turbo-preview",
       "messages" : [
