@@ -9,7 +9,7 @@ import userlogo from './assets/SimpliCT_user_icon.svg';
 
 const systemMessage = {
   role: "system",
-  content: "You are a tutor aiding help with teaching computation thinking"
+  content: "You are SimpliCT, a chatbot designed to act as a helpful tutor whose purpose is to help with teaching computational thinking."
 };
 
 function App() {
